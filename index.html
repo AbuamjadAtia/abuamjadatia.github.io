@@ -1259,21 +1259,29 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
         location.reload();
     }, {once: true});
 });
-// Select the video element
-let video = document.querySelector('video');
 
-// When metadata is loaded, draw a frame from the video to a canvas and set it as the poster
-video.onloadedmetadata = function() {
-  let canvas = document.createElement('canvas');
-  canvas.width = this.videoWidth;
-  canvas.height = this.videoHeight;
+window.onload = function() {
+    // Get all video elements
+    var videos = document.querySelectorAll('video.js-message_video');
 
-  let ctx = canvas.getContext('2d');
-  ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+    // Iterate over each video element
+    videos.forEach(function(video) {
+        // Get the video source link
+        var videoLink = video.src;
 
-  let poster = canvas.toDataURL();
-  this.setAttribute('poster', poster);
+        // Replace .mp4 with .jpg in the video link
+        var imageLink = videoLink.replace('.mp4', '.jpg');
+
+        // Create a new element
+        var newElement = document.createElement('i');
+        newElement.className = 'tgme_widget_message_video_thumb';
+        newElement.style.backgroundImage = 'url(' + imageLink + ')';
+
+        // Add the new element under the grandparent of the video element
+        video.parentElement.parentElement.appendChild(newElement);
+    });
 };
+
 
 </script>
 
