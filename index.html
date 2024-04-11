@@ -1271,6 +1271,21 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
         location.reload();
     }, {once: true});
 });
+// Select the video element
+let video = document.querySelector('video');
+
+// When metadata is loaded, draw a frame from the video to a canvas and set it as the poster
+video.onloadedmetadata = function() {
+  let canvas = document.createElement('canvas');
+  canvas.width = this.videoWidth;
+  canvas.height = this.videoHeight;
+
+  let ctx = canvas.getContext('2d');
+  ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+
+  let poster = canvas.toDataURL();
+  this.setAttribute('poster', poster);
+};
 
 </script>
 
