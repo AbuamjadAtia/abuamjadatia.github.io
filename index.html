@@ -1259,11 +1259,10 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
 });
 
 // HTML structure for the modal
-// HTML structure for the modal
 var modal = document.createElement('div');
 modal.style.display = 'none';
 modal.style.position = 'fixed';
-modal.style.zIndex = '99';
+modal.style.zIndex = '1';
 modal.style.left = '0';
 modal.style.top = '0';
 modal.style.width = '100%';
@@ -1276,13 +1275,14 @@ modalContent.style.margin = 'auto';
 modalContent.style.display = 'block';
 modalContent.style.width = '80%';
 modalContent.style.maxWidth = '700px';
+modalContent.style.height = '100%'; // Make the image flexible in height
 
 var closeButton = document.createElement('span');
 closeButton.innerHTML = '×';
 closeButton.style.position = 'absolute';
 closeButton.style.top = '10%';
-closeButton.style.left = '10%';
-closeButton.style.color = '#f1f1f1';
+closeButton.style.right = '10%'; // Move the button to the right
+closeButton.style.color = '#000'; // Change the button color to black
 closeButton.style.fontSize = '40px';
 closeButton.style.fontWeight = 'bold';
 closeButton.style.transition = '0.3s';
@@ -1307,9 +1307,12 @@ closeButton.addEventListener('click', closeModal);
 
 // Event listeners for the images
 var images = document.querySelectorAll('.tgme_widget_message_photo_wrap');
-images.forEach(function(img) {
+images.forEach(function(img, index) {
   img.addEventListener('click', function() {
-    openModal(this.style.backgroundImage.slice(5, -2));
+    // Only open the modal on even clicks (2nd, 4th, 6th, etc.)
+    if ((index + 1) % 2 === 0) {
+      openModal(this.style.backgroundImage.slice(5, -2));
+    }
   });
 });
 
