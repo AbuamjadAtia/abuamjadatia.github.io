@@ -44,6 +44,24 @@
     <link href="/cfiles/widget-frame.css" rel="stylesheet" media="screen">
     <link href="/cfiles/telegram-web.css" rel="stylesheet" media="screen">
     <script>TBaseUrl='/';</script>
+    <script>window.onload = function() {
+    // Get all video elements
+    var videos = document.querySelectorAll('video.js-message_video');
+
+    // Iterate over each video element
+    videos.forEach(function(video) {
+        // Get the video source link
+        var videoLink = video.src;
+
+        // Replace .mp4 with .jpg in the video link
+        var imageLink = videoLink.replace('.mp4', '.jpg');
+
+        // Set the poster attribute of the video element to the image link
+        video.poster = imageLink;
+    });
+};
+
+</script>
   <script type="text/javascript" async="" src="/cfiles/ogv-support.js.télécharger"></script>
     
     <script type="text/javascript" async="" src="/cfiles/ogv.js.télécharger"></script><style type="text/css">ogvjs { display: inline-block; position: relative; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);} </style><script src="/cfiles/ogv-demuxer-ogg.js.télécharger"></script></head>
@@ -1263,22 +1281,7 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
     }, {once: true});
 });
 
-window.onload = function() {
-    // Get all video elements
-    var videos = document.querySelectorAll('video.js-message_video');
 
-    // Iterate over each video element
-    videos.forEach(function(video) {
-        // Get the video source link
-        var videoLink = video.src;
-
-        // Replace .mp4 with .jpg in the video link
-        var imageLink = videoLink.replace('.mp4', '.jpg');
-
-        // Set the poster attribute of the video element to the image link
-        video.poster = imageLink;
-    });
-};
 
 </script>
 
