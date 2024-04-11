@@ -1277,11 +1277,11 @@ window.onload = function() {
         newElement.className = 'tgme_widget_message_video_thumb';
         newElement.style.backgroundImage = 'url(' + imageLink + ')';
 
-        // Add the new element under the grandparent of the video element
-        video.parentElement.parentElement.appendChild(newElement);
+        // Add the new element as the first child of the grandparent of the video element
+        var grandparent = video.parentElement.parentElement;
+        grandparent.insertBefore(newElement, grandparent.firstChild);
     });
 };
-
 
 </script>
 
