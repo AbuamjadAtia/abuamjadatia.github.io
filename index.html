@@ -56,7 +56,9 @@
     <link href="/cfiles/widget-frame.css" rel="stylesheet" media="screen">
     <link href="/cfiles/telegram-web.css" rel="stylesheet" media="screen">
     <script>TBaseUrl='/';</script>
-  <script type="text/javascript" async="" src="/cfiles/ogv-support.js.télécharger"></script><script type="text/javascript" async="" src="/cfiles/ogv.js.télécharger"></script><style type="text/css">ogvjs { display: inline-block; position: relative; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);} </style><script src="/cfiles/ogv-demuxer-ogg.js.télécharger"></script></head>
+  <script type="text/javascript" async="" src="/cfiles/ogv-support.js.télécharger"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script type="text/javascript" async="" src="/cfiles/ogv.js.télécharger"></script><style type="text/css">ogvjs { display: inline-block; position: relative; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);} </style><script src="/cfiles/ogv-demuxer-ogg.js.télécharger"></script></head>
   <body class="widget_frame_base tgme_webpreview emoji_image thin_box_shadow tme_mode twallpaper">
     <div class="tgme_background_wrap">
       <canvas id="tgme_background" class="tgme_background" width="50" height="50" data-colors="dbddbb,6ba587,d5d88d,88b884"></canvas>
@@ -1274,7 +1276,23 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
 });
 
 </script>
-    
+<script>
+  window.onload = function() {
+    var videos = document.getElementsByTagName('video');
+    for (var i = 0; i < videos.length; i++) {
+      var video = videos[i];
+      if(Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(video.src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play();
+        });
+      }
+    }
+  };
+</script>
+
   
 
 
