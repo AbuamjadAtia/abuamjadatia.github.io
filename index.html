@@ -1266,7 +1266,7 @@ modal.style.zIndex = '1';
 modal.style.left = '0';
 modal.style.top = '0';
 modal.style.width = '100%';
-modal.style.height = '100%';
+modal.style.height = '100vh'; // Set height relative to the viewport
 modal.style.overflow = 'auto';
 modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
@@ -1275,7 +1275,7 @@ modalContent.style.margin = 'auto';
 modalContent.style.display = 'block';
 modalContent.style.width = '80%';
 modalContent.style.maxWidth = '700px';
-modalContent.style.height = '100%'; // Make the image flexible in height
+modalContent.style.height = '80vh'; // Set height relative to the viewport
 
 var closeButton = document.createElement('span');
 closeButton.innerHTML = '×';
