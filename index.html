@@ -1262,7 +1262,7 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
 
 window.onload = function() {
     // Get all video elements
-    var videos = document.querySelectorAll('video.js-message_video');
+    var videos = document.querySelectorAll('.js-message_video');
 
     // Iterate over each video element
     videos.forEach(function(video) {
@@ -1272,14 +1272,8 @@ window.onload = function() {
         // Replace .mp4 with .jpg in the video link
         var imageLink = videoLink.replace('.mp4', '.jpg');
 
-        // Create a new element
-        var newElement = document.createElement('i');
-        newElement.className = 'tgme_widget_message_video_thumb';
-        newElement.style.backgroundImage = 'url(' + imageLink + ')';
-
-        // Add the new element as the first child of the grandparent of the video element
-        var grandparent = video.parentElement.parentElement;
-        grandparent.insertBefore(newElement, grandparent.firstChild);
+        // Set the poster attribute of the video element to the image link
+        video.poster = imageLink;
     });
 };
 
