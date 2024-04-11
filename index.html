@@ -1258,6 +1258,59 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
     }, {once: true});
 });
 
+// HTML structure for the modal
+var modal = document.createElement('div');
+modal.style.display = 'none';
+modal.style.position = 'fixed';
+modal.style.zIndex = '1';
+modal.style.left = '0';
+modal.style.top = '0';
+modal.style.width = '100%';
+modal.style.height = '100%';
+modal.style.overflow = 'auto';
+modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+
+var modalContent = document.createElement('img');
+modalContent.style.margin = 'auto';
+modalContent.style.display = 'block';
+modalContent.style.width = '80%';
+modalContent.style.maxWidth = '700px';
+
+var closeButton = document.createElement('span');
+closeButton.innerHTML = '×';
+closeButton.style.position = 'absolute';
+closeButton.style.top = '15px';
+closeButton.style.right = '35px';
+closeButton.style.color = '#f1f1f1';
+closeButton.style.fontSize = '40px';
+closeButton.style.fontWeight = 'bold';
+closeButton.style.transition = '0.3s';
+
+modal.appendChild(closeButton);
+modal.appendChild(modalContent);
+document.body.appendChild(modal);
+
+// Function to open the modal
+function openModal(src) {
+  modal.style.display = 'block';
+  modalContent.src = src;
+}
+
+// Function to close the modal
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Event listener for the close button
+closeButton.addEventListener('click', closeModal);
+
+// Event listeners for the images
+var images = document.querySelectorAll('.tgme_widget_message_photo_wrap');
+images.forEach(function(img) {
+  img.addEventListener('click', function() {
+    openModal(this.style.backgroundImage.slice(5, -2));
+  });
+});
 
 
 </script>
