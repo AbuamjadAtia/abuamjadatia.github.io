@@ -1284,16 +1284,19 @@ closeButton.style.position = 'absolute';
 closeButton.style.top = '10%';
 closeButton.style.right = '10%';
 closeButton.style.color = '#000'; // Black color for the 'x'
-closeButton.style.fontSize = '35px';
+closeButton.style.fontSize = '30px';
 closeButton.style.fontWeight = 'bold';
 closeButton.style.transition = '0.3s';
 closeButton.style.background = 'radial-gradient(circle at center, white, gray)'; // Radial gradient background
 closeButton.style.borderRadius = '50%'; // Circle shape
-closeButton.style.width = '40px'; // Equal width and height
-closeButton.style.height = '40px'; // Equal width and height
-closeButton.style.lineHeight = '40px'; // Vertically center the 'x'
+closeButton.style.width = '35px'; // Equal width and height
+closeButton.style.height = '35px'; // Equal width and height
+closeButton.style.lineHeight = '350px'; // Vertically center the 'x'
 closeButton.style.textAlign = 'center'; // Horizontally center the 'x'
 closeButton.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.5)'; // Shadow effect
+closeButton.style.border = '2px solid black'; // Black border
+closeButton.style.cursor = 'pointer'; // Add this line to change the cursor to a hand on hover
+
 
 
 modal.appendChild(closeButton);
