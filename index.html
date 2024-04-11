@@ -1262,27 +1262,28 @@ document.querySelectorAll('.message_media_view_in_telegram').forEach(function(el
 var modal = document.createElement('div');
 modal.style.display = 'none';
 modal.style.position = 'fixed';
-modal.style.zIndex = '1';
+modal.style.zIndex = '1000'; // Increase z-index to ensure modal appears above all other elements
 modal.style.left = '0';
 modal.style.top = '0';
 modal.style.width = '100%';
-modal.style.height = '100vh'; // Set height relative to the viewport
+modal.style.height = '100vh';
 modal.style.overflow = 'auto';
 modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+modal.style.display = 'flex'; // Use flexbox to center the image
+modal.style.justifyContent = 'center';
+modal.style.alignItems = 'center';
 
 var modalContent = document.createElement('img');
-modalContent.style.margin = 'auto';
-modalContent.style.display = 'block';
-modalContent.style.width = '80%';
-modalContent.style.maxWidth = '700px';
-modalContent.style.height = '80vh'; // Set height relative to the viewport
+modalContent.style.maxHeight = '100vh'; // Set max-height relative to the viewport
+modalContent.style.height = 'auto'; // Set height to auto to maintain aspect ratio
+modalContent.style.width = 'auto'; // Set width to auto to maintain aspect ratio
 
 var closeButton = document.createElement('span');
 closeButton.innerHTML = '×';
 closeButton.style.position = 'absolute';
 closeButton.style.top = '10%';
-closeButton.style.right = '10%'; // Move the button to the right
-closeButton.style.color = '#000'; // Change the button color to black
+closeButton.style.right = '10%';
+closeButton.style.color = '#000';
 closeButton.style.fontSize = '40px';
 closeButton.style.fontWeight = 'bold';
 closeButton.style.transition = '0.3s';
@@ -1293,7 +1294,7 @@ document.body.appendChild(modal);
 
 // Function to open the modal
 function openModal(src) {
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
   modalContent.src = src;
 }
 
@@ -1307,10 +1308,12 @@ closeButton.addEventListener('click', closeModal);
 
 // Event listeners for the images
 var images = document.querySelectorAll('.tgme_widget_message_photo_wrap');
+var clickCounts = Array(images.length).fill(0); // Array to keep track of click counts
 images.forEach(function(img, index) {
   img.addEventListener('click', function() {
+    clickCounts[index]++; // Increment the click count for this image
     // Only open the modal on even clicks (2nd, 4th, 6th, etc.)
-    if ((index + 1) % 2 === 0) {
+    if (clickCounts[index] % 2 === 0) {
       openModal(this.style.backgroundImage.slice(5, -2));
     }
   });
