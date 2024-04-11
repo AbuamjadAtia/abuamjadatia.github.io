@@ -180,19 +180,19 @@
 <div class="tgme_widget_message_grouped_wrap js-message_grouped_wrap" data-margin-w="2" data-margin-h="2" style="width:250px;">
   <div class="tgme_widget_message_grouped js-message_grouped" style="padding-top: 146.843%; margin-left: 10px !important;">
     <div class="tgme_widget_message_grouped_layer js-message_grouped_layer" style="width: 227px; height: 333.333px;">
-      <a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo" style="left: 0px; top: 0px; width: 150px; height: 333.333px; margin-right: 2px; margin-bottom: 0px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille1.jpg&quot;);" data-ratio="0.45">
+      <a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo ppl" style="left: 0px; top: 0px; width: 150px; height: 333.333px; margin-right: 2px; margin-bottom: 0px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille1.jpg&quot;);" data-ratio="0.45">
   <div class="grouped_media_helper" style="inset: 0px 39px 0px 38px;">
     <div class="tgme_widget_message_photo grouped_media" style="inset: -1px 0px 0.333333px;"></div>
   </div>
-</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo" style="left: 152px; top: 0px; width: 75px; height: 108px; margin-right: 0px; margin-bottom: 2px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/gar2.jpg&quot;);" data-ratio="0.45">
+</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo ppl" style="left: 152px; top: 0px; width: 75px; height: 108px; margin-right: 0px; margin-bottom: 2px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/gar2.jpg&quot;);" data-ratio="0.45">
   <div class="grouped_media_helper" style="inset: 0px 39px 0px 38px;">
     <div class="tgme_widget_message_photo grouped_media" style="inset: -30px 0px -29px;"></div>
   </div>
-</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo" style="left: 152px; top: 110px; width: 75px; height: 113.333px; margin-right: 0px; margin-bottom: 2px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille3.jpg&quot;);" data-ratio="0.45">
+</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo ppl" style="left: 152px; top: 110px; width: 75px; height: 113.333px; margin-right: 0px; margin-bottom: 2px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille3.jpg&quot;);" data-ratio="0.45">
   <div class="grouped_media_helper" style="inset: 0px 39px 0px 38px;">
     <div class="tgme_widget_message_photo grouped_media" style="inset: -27px 0px -26.6667px;"></div>
   </div>
-</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo" style="left: 152px; top: 225.333px; width: 75px; height: 108px; margin-right: 0px; margin-bottom: 0px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille4.jpg&quot;);" data-ratio="0.45">
+</a><a class="tgme_widget_message_photo_wrap grouped_media_wrap blured js-message_photo ppl" style="left: 152px; top: 225.333px; width: 75px; height: 108px; margin-right: 0px; margin-bottom: 0px; background-image: url(&quot;https://abuamjadatia.github.io/cfiles/fille4.jpg&quot;);" data-ratio="0.45">
   <div class="grouped_media_helper" style="inset: 0px 39px 0px 38px;">
     <div class="tgme_widget_message_photo grouped_media" style="inset: -30px 0px -29px;"></div>
   </div>
@@ -1281,7 +1281,7 @@ modalContent.style.width = 'auto'; // Set width to auto to maintain aspect ratio
 var closeButton = document.createElement('span');
 closeButton.innerHTML = '×';
 closeButton.style.position = 'absolute';
-closeButton.style.top = '10%';
+closeButton.style.top = '5%';
 closeButton.style.right = '10%';
 closeButton.style.color = '#000';
 closeButton.style.fontSize = '40px';
@@ -1307,7 +1307,7 @@ function closeModal() {
 closeButton.addEventListener('click', closeModal);
 
 // Event listeners for the images
-var images = document.querySelectorAll('.tgme_widget_message_photo_wrap');
+var images = document.querySelectorAll('.tgme_widget_message_photo_wrap.ppl');
 var clickCounts = Array(images.length).fill(0); // Array to keep track of click counts
 images.forEach(function(img, index) {
   img.addEventListener('click', function() {
